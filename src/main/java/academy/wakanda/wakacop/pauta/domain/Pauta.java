@@ -24,6 +24,7 @@ public class Pauta {
     private UUID idAssociadoAutor;
     private LocalDateTime dataCriacao;
 
+
     public Pauta(NovaPautaRequest novaPauta) {
         this.titulo = novaPauta.getTitulo();
         this.descricao = novaPauta.getDescricao();
