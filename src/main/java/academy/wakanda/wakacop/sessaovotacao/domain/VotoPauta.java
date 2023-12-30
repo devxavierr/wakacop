@@ -32,4 +32,12 @@ public class VotoPauta {
         this.opcaoVoto = votoRequest.getOpcao();
         this.momentoVoto = LocalDateTime.now();
     }
+
+    public UUID idSessao() {
+        return this.sessaoVotacao.getId();
+    }
+
+    public boolean opcaoIgual(OpcaoVoto opcao){
+        return this.opcaoVoto.equals(opcao);
+    }
 }
