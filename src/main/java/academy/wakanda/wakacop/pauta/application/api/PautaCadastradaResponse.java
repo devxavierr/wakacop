@@ -3,7 +3,6 @@ package academy.wakanda.wakacop.pauta.application.api;
 import academy.wakanda.wakacop.pauta.domain.Pauta;
 import lombok.Getter;
 import lombok.ToString;
-import org.springframework.web.service.annotation.GetExchange;
 
 import java.util.UUID;
 @Getter

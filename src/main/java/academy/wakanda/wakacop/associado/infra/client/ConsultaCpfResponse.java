@@ -6,13 +6,13 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class ConsultaCPFResponse {
+public class ConsultaCpfResponse {
     @JsonProperty("ni")
     private String ni;
     @JsonProperty("nome")
     private String nome;
     @JsonProperty("situacao")
-    private String situacao;
+    private Situacao situacao;
     @JsonProperty("nascimento")
     private String nascimento;
 
@@ -20,7 +20,7 @@ public class ConsultaCPFResponse {
         return ! isValid();
     }
     public boolean isValid() {
-        return this.getSituacao().equals("0");
+        return (this.situacao.getCodigo().equals("0"));
     }
 
     @Getter
