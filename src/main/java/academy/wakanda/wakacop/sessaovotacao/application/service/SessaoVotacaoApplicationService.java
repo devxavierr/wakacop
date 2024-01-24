@@ -24,30 +24,30 @@ public class SessaoVotacaoApplicationService implements SessaoVotacaoService {
 
     @Override
     public SessaoAberturaResponse abreSessao(SessaoAberturaRequest sessaoAberturaRequest) {
-        log.info("[inicia] SessaoVotacaoApplicationService - abreSessao");
+        log.debug("[inicia] SessaoVotacaoApplicationService - abreSessao");
         Pauta pauta = pautaService.getPautaPorId(sessaoAberturaRequest.getIdPauta());
         SessaoVotacao sessaoVotacao = sessaoVotacaoRepository.salva(new SessaoVotacao(sessaoAberturaRequest,pauta));
-        log.info("[finaliza] SessaoVotacaoApplicationService - abreSessao");
+        log.debug("[finaliza] SessaoVotacaoApplicationService - abreSessao");
         return new SessaoAberturaResponse(sessaoVotacao);
     }
 
     @Override
     public VotoResponse receVoto(UUID idSessao, VotoRequest novoVoto) {
-        log.info("[inicia] SessaoVotacaoApplicationService - receVoto");
+        log.debug("[inicia] SessaoVotacaoApplicationService - receVoto");
         SessaoVotacao sessao = sessaoVotacaoRepository.buscaPorId(idSessao);
         VotoPauta voto = sessao.recebeVoto(novoVoto, associadoService);
         sessaoVotacaoRepository.salva(sessao);
-        log.info("[finaliza] SessaoVotacaoApplicationService - receVoto");
+        log.debug("[finaliza] SessaoVotacaoApplicationService - receVoto");
         return new VotoResponse(voto);
     }
 
     @Override
     public ResultadoSessaoResponse obtemResultado(UUID idSessao) {
-        log.info("[inicia] SessaoVotacaoApplicationService - obtemResultado");
+        log.debug("[inicia] SessaoVotacaoApplicationService - obtemResultado");
         SessaoVotacao sessao = sessaoVotacaoRepository.buscaPorId(idSessao);
         ResultadoSessaoResponse resultado = sessao.obtemResultado();
         sessaoVotacaoRepository.salva(sessao);
-        log.info("[finaliza] SessaoVotacaoApplicationService - obtemResultado");
+        log.debug("[finaliza] SessaoVotacaoApplicationService - obtemResultado");
         return resultado;
     }
 }
