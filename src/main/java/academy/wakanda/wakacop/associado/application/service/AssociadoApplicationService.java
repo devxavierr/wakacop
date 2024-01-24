@@ -9,17 +9,17 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Log4j2
-public class AssociadoApplicationService implements AssociadoService {
+public class  AssociadoApplicationService implements AssociadoService {
 
     private final SerproClientFeing serproClientFeign;
 
     @Override
     public void validaAssociadoAptoVoto(String cpfAssociado) {
-        log.info("[inicia] AssociadoApplicationService - validaAssociadoAptoVoto");
+        log.debug("[inicia] AssociadoApplicationService - validaAssociadoAptoVoto");
         ConsultaCpfResponse consultaCPFResponse = serproClientFeign.consultaCPF(TOKEN, cpfAssociado);
         valida(consultaCPFResponse);
 
-        log.info("[finaliza] AssociadoApplicationService - validaAssociadoAptoVoto");
+        log.debug("[finaliza] AssociadoApplicationService - validaAssociadoAptoVoto");
     }
 
     private void valida(ConsultaCpfResponse consultaCPFResponse) {
