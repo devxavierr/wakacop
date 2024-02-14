@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 @Log4j2
-public class PautaApplicationService implements PautaService {
+public class  PautaApplicationService implements PautaService {
     private final PautaRepository pautaRepository;
 
     @Override
